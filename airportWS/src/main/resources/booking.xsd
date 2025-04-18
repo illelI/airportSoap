@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema
+        xmlns:xs="http://www.w3.org/2001/XMLSchema"
+        targetNamespace="http://ilelli.com/airport/booking"
+        xmlns:tns="http://ilelli.com/airport/booking"
+        elementFormDefault="qualified">
+
+    <xs:element name="BookingRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="passengerName" type="xs:string"/>
+                <xs:element name="flightNumber" type="xs:string"/>
+                <xs:element name="departureDate" type="xs:date"/>
+                <xs:element name="seatClass" type="tns:SeatClass"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="BookingResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="reservationCode" type="xs:string"/>
+                <xs:element name="status" type="tns:BookingStatus"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:simpleType name="SeatClass">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="ECONOMY"/>
+            <xs:enumeration value="BUSINESS"/>
+            <xs:enumeration value="FIRST"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="BookingStatus">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="CONFIRMED"/>
+            <xs:enumeration value="FAILED"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+</xs:schema>
