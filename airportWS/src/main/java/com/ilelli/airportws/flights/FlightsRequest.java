@@ -1,4 +1,4 @@
-package com.ilelli.airportws.booking;
+package com.ilelli.airportws.flights;
 
 import com.ilelli.airportws.shared.SeatClass;
 import jakarta.xml.bind.annotation.XmlAccessType;
@@ -13,20 +13,20 @@ import java.time.LocalDate;
 
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-        "passengerName",
         "flightNumber",
-        "departureDate",
+        "from",
+        "to",
+        "date",
         "seatClass"
 })
-@XmlRootElement(name = "BookingRequest", namespace = "http://ilelli.com/airport/booking")
+@XmlRootElement(name = "FlightsRequest", namespace = "http://ilelli.com/airport/flights")
 @Getter
 @Setter
-class BookingRequest {
-    private String passengerName;
+class FlightsRequest {
     private String flightNumber;
-
+    private String from;
+    private String to;
     @XmlSchemaType(name = "date")
-    private LocalDate departureDate;
-
+    private LocalDate date;
     private SeatClass seatClass;
 }

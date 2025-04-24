@@ -6,8 +6,13 @@ import org.springframework.ws.server.endpoint.annotation.RequestPayload;
 import org.springframework.ws.server.endpoint.annotation.ResponsePayload;
 
 @Endpoint
-public class BookingEndpoint {
+class BookingEndpoint {
     private static final String NAMESPACE = "http://ilelli.com/airport/booking";
+    private final BookingService bookingService;
+
+    public BookingEndpoint(BookingService bookingService) {
+        this.bookingService = bookingService;
+    }
 
     @PayloadRoot(namespace = NAMESPACE, localPart = "BookingRequest")
     @ResponsePayload

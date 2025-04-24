@@ -1,4 +1,4 @@
-package com.ilelli.airportws.booking;
+package com.ilelli.airportws.flights;
 
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
@@ -7,15 +7,15 @@ import jakarta.xml.bind.annotation.XmlType;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.List;
+
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-        "reservationCode",
-        "status"
+        "flight"
 })
-@XmlRootElement(name = "BookingResponse", namespace = "http://ilelli.com/airport/booking")
+@XmlRootElement(name = "FlightsResponse", namespace = "http://ilelli.com/airport/flights")
 @Getter
 @Setter
-class BookingResponse {
-    private String reservationCode;
-    private BookingStatus status;
+class FlightsResponse {
+    private List<FlightDetails> flights;
 }

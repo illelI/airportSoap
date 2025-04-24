@@ -1,5 +1,6 @@
 package com.ilelli.airportws.config;
 
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.web.servlet.ServletRegistrationBean;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
@@ -14,7 +15,7 @@ import org.springframework.xml.xsd.XsdSchema;
 
 @EnableWs
 @Configuration
-public class WebServiceConfig extends WsConfigurerAdapter {
+class WebServiceConfig extends WsConfigurerAdapter {
     @Bean
     public ServletRegistrationBean<MessageDispatcherServlet> messageDispatcherServlet(ApplicationContext ctx) {
         MessageDispatcherServlet servlet = new MessageDispatcherServlet();
@@ -24,7 +25,7 @@ public class WebServiceConfig extends WsConfigurerAdapter {
     }
 
     @Bean(name = "booking")
-    public DefaultWsdl11Definition defaultWsdl11Definition(XsdSchema schema) {
+    public DefaultWsdl11Definition bookingWsdl11Definition(@Qualifier("bookingSchema") XsdSchema schema) {
         DefaultWsdl11Definition wsdl = new DefaultWsdl11Definition();
         wsdl.setPortTypeName("BookingPort");
         wsdl.setLocationUri("/ws");
@@ -35,6 +36,21 @@ public class WebServiceConfig extends WsConfigurerAdapter {
 
     @Bean
     public XsdSchema bookingSchema() {
-        return new SimpleXsdSchema(new ClassPathResource("booking.xsd"));
+        return new SimpleXsdSchema(new ClassPathResource("static/xsd/booking.xsd"));
+    }
+
+    @Bean(name = "flights")
+    public DefaultWsdl11Definition flightsWsdl11Definition(@Qualifier("flightsSchema") XsdSchema schema) {
+        DefaultWsdl11Definition wsdl = new DefaultWsdl11Definition();
+        wsdl.setPortTypeName("FlightsPort");
+        wsdl.setLocationUri("/ws");
+        wsdl.setTargetNamespace("http://ilelli.com/airport/flights");
+        wsdl.setSchema(schema);
+        return wsdl;
+    }
+
+    @Bean
+    public XsdSchema flightsSchema() {
+        return new SimpleXsdSchema(new ClassPathResource("static/xsd/flights.xsd"));
     }
 }

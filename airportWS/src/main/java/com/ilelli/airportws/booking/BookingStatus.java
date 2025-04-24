@@ -5,7 +5,7 @@ import jakarta.xml.bind.annotation.XmlType;
 
 @XmlType(name = "BookingStatus")
 @XmlEnum
-public enum BookingStatus {
+enum BookingStatus {
     CONFIRMED,
     FAILED
 }
