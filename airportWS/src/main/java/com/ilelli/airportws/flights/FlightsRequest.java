@@ -13,7 +13,6 @@ import java.time.LocalDate;
 
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-        "flightNumber",
         "from",
         "to",
         "date",
@@ -23,7 +22,6 @@ import java.time.LocalDate;
 @Getter
 @Setter
 class FlightsRequest {
-    private String flightNumber;
     private String from;
     private String to;
     @XmlSchemaType(name = "date")

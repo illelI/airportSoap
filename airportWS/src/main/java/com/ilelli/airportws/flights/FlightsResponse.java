@@ -2,6 +2,7 @@ package com.ilelli.airportws.flights;
 
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
+import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlRootElement;
 import jakarta.xml.bind.annotation.XmlType;
 import lombok.Getter;
@@ -11,11 +12,12 @@ import java.util.List;
 
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-        "flight"
+        "flights"
 })
 @XmlRootElement(name = "FlightsResponse", namespace = "http://ilelli.com/airport/flights")
 @Getter
 @Setter
 class FlightsResponse {
+    @XmlElement(name = "flight")
     private List<FlightDetails> flights;
 }
