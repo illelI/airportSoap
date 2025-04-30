@@ -6,18 +6,14 @@ import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlType;
 import jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.Data;
 
 import java.time.LocalDate;
 
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "FlightDetails", propOrder = { "flightNumber", "from", "to", "date", "price" })
-@Getter
-@Setter
+@Data
 @AllArgsConstructor
-@NoArgsConstructor
 public class FlightDetails {
     private String flightNumber;
     private String from;

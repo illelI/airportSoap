@@ -1,5 +1,6 @@
 package com.ilelli.airportws.flights;
 
+import jakarta.transaction.Transactional;
 import org.springframework.ws.server.endpoint.annotation.Endpoint;
 import org.springframework.ws.server.endpoint.annotation.PayloadRoot;
 import org.springframework.ws.server.endpoint.annotation.RequestPayload;
@@ -19,7 +20,7 @@ class FlightsEndpoint {
 
     @PayloadRoot(namespace = NAMESPACE, localPart = "FlightsRequest")
     @ResponsePayload
-    public FlightsResponse book(@RequestPayload FlightsRequest request) {
+    public FlightsResponse getFlights(@RequestPayload FlightsRequest request) {
         FlightsResponse response = new FlightsResponse();
         response.setFlights(List.of(new FlightDetails("jp2gmd", "wadowice", "watykan", LocalDate.now(), 2137),
                 new FlightDetails("jd123", "warszawa", "ateny", LocalDate.MIN, 222)

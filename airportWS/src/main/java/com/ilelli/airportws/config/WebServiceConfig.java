@@ -53,4 +53,19 @@ class WebServiceConfig extends WsConfigurerAdapter {
     public XsdSchema flightsSchema() {
         return new SimpleXsdSchema(new ClassPathResource("static/xsd/flights.xsd"));
     }
+
+    @Bean(name = "user")
+    public DefaultWsdl11Definition userWsdl11Definition(@Qualifier("userSchema") XsdSchema schema) {
+        DefaultWsdl11Definition wsdl = new DefaultWsdl11Definition();
+        wsdl.setPortTypeName("UserPort");
+        wsdl.setLocationUri("/ws");
+        wsdl.setTargetNamespace("http://ilelli.com/airport/user");
+        wsdl.setSchema(schema);
+        return wsdl;
+    }
+
+    @Bean
+    public XsdSchema userSchema() {
+        return new SimpleXsdSchema(new ClassPathResource("static/xsd/user.xsd"));
+    }
 }

@@ -9,8 +9,9 @@
         <xs:complexType>
             <xs:sequence>
                 <xs:element name="passengerName" type="xs:string"/>
+                <xs:element name="passengerSurname" type="xs:string"/>
                 <xs:element name="flightNumber" type="xs:string"/>
-                <xs:element name="departureDate" type="xs:date"/>
+                <xs:element name="departureDate" type="xs:dateTime"/>
                 <xs:element name="seatClass" type="tns:SeatClass"/>
             </xs:sequence>
         </xs:complexType>
@@ -19,7 +20,6 @@
     <xs:element name="BookingResponse">
         <xs:complexType>
             <xs:sequence>
-                <xs:element name="reservationCode" type="xs:string"/>
                 <xs:element name="status" type="tns:BookingStatus"/>
             </xs:sequence>
         </xs:complexType>

@@ -10,6 +10,18 @@ class BookingService {
     //    this.bookingRepository = bookingRepository;
     //}
 
+    void book(BookingRequest request) {
+        //bookingRepository.save(requestToTicket(request));
+    }
 
+    private Ticket requestToTicket(BookingRequest request) {
+        Ticket ticket = new Ticket();
+        ticket.setDepartureDate(request.getDepartureDate());
+        ticket.setFlightNumber(request.getFlightNumber());
+        ticket.setSeatClass(request.getSeatClass());
+        ticket.setPassengerName(request.getPassengerName());
+        ticket.setPassengerSurname(request.getPassengerSurname());
+        return ticket;
+    }
 
 }

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema
+        xmlns:xs="http://www.w3.org/2001/XMLSchema"
+        targetNamespace="http://ilelli.com/airport/user"
+        xmlns:tns="http://ilelli.com/airport/user"
+        elementFormDefault="qualified">
+
+    <xs:import namespace="http://ilelli.com/airport/booking" schemaLocation="http://localhost:8080/xsd/booking.xsd"/>
+
+    <xs:element name="UserRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="passengerName" type="xs:string"/>
+                <xs:element name="flightNumber" type="xs:string"/>
+                <xs:element name="departureDate" type="xs:date"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="UserResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="reservationCode" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+</xs:schema>

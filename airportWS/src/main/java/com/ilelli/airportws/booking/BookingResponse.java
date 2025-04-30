@@ -9,13 +9,11 @@ import lombok.Setter;
 
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-        "reservationCode",
         "status"
 })
 @XmlRootElement(name = "BookingResponse", namespace = "http://ilelli.com/airport/booking")
 @Getter
 @Setter
 class BookingResponse {
-    private String reservationCode;
     private BookingStatus status;
 }

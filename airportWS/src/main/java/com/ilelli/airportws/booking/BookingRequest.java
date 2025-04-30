@@ -9,11 +9,12 @@ import jakarta.xml.bind.annotation.XmlType;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
         "passengerName",
+        "passengerSurname",
         "flightNumber",
         "departureDate",
         "seatClass"
@@ -23,10 +24,11 @@ import java.time.LocalDate;
 @Setter
 class BookingRequest {
     private String passengerName;
+    private String passengerSurname;
     private String flightNumber;
 
     @XmlSchemaType(name = "date")
-    private LocalDate departureDate;
+    private LocalDateTime departureDate;
 
     private SeatClass seatClass;
 }
