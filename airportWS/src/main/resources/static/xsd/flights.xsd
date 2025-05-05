@@ -32,7 +32,7 @@
             <xs:element name="flightNumber" type="xs:string"/>
             <xs:element name="from" type="xs:string" />
             <xs:element name="to" type="xs:string" />
-            <xs:element name="date" type="xs:date"/>
+            <xs:element name="date" type="xs:dateTime"/>
             <xs:element name="price" type="xs:int" />
         </xs:sequence>
     </xs:complexType>

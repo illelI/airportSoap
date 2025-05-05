@@ -22,9 +22,7 @@ class FlightsEndpoint {
     @ResponsePayload
     public FlightsResponse getFlights(@RequestPayload FlightsRequest request) {
         FlightsResponse response = new FlightsResponse();
-        response.setFlights(List.of(new FlightDetails("jp2gmd", "wadowice", "watykan", LocalDate.now(), 2137),
-                new FlightDetails("jd123", "warszawa", "ateny", LocalDate.MIN, 222)
-                ));
+        response.setFlights(flightsService.findFlights(request.getFrom(), request.getTo(), request.getDate(), request.getSeatClass()));
         return response;
     }
 }

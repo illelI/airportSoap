@@ -21,7 +21,7 @@ class BookingEndpoint {
     public BookingResponse book(@RequestPayload BookingRequest request) {
         BookingResponse response = new BookingResponse();
         try {
-            bookingService.book(request);
+            bookingService.book(request.getPassengerName(), request.getPassengerSurname(), request.getFlightNumber(), request.getDepartureDate(), request.getSeatClass());
             response.setStatus(BookingStatus.CONFIRMED);
         } catch (Exception e) {
             response.setStatus(BookingStatus.FAILED);

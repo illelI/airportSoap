@@ -1,4 +1,4 @@
-package com.ilelli.airportws.booking;
+package com.ilelli.airportws.flights;
 
 import com.ilelli.airportws.shared.SeatClass;
 import jakarta.persistence.Entity;
@@ -12,13 +12,14 @@ import java.util.UUID;
 
 @Entity
 @Data
-public class Ticket {
+class Flight {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID id;
-    private String passengerName;
-    private String passengerSurname;
     private String flightNumber;
-    private LocalDateTime departureDate;
+    private String from;
+    private String to;
+    private LocalDateTime date;
     private SeatClass seatClass;
+    private int price;
 }
