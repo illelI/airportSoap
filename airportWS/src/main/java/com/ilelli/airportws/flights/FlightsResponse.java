@@ -6,6 +6,7 @@ import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlRootElement;
 import jakarta.xml.bind.annotation.XmlType;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.util.List;
@@ -17,7 +18,8 @@ import java.util.List;
 @XmlRootElement(name = "FlightsResponse", namespace = "http://ilelli.com/airport/flights")
 @Getter
 @Setter
-class FlightsResponse {
-    @XmlElement(name = "flight")
+@NoArgsConstructor
+public class FlightsResponse {
+    @XmlElement(namespace = "http://ilelli.com/airport/flight", name = "flight")
     private List<FlightDetails> flights;
 }

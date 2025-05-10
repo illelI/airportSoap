@@ -5,8 +5,6 @@ import com.ilelli.airportws.user.UserService;
 import jakarta.xml.soap.MessageFactory;
 import jakarta.xml.soap.SOAPConstants;
 import jakarta.xml.soap.SOAPException;
-import jakarta.xml.ws.handler.MessageContext;
-import jakarta.xml.ws.handler.soap.SOAPMessageContext;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.web.servlet.ServletRegistrationBean;
 import org.springframework.context.ApplicationContext;
@@ -17,17 +15,22 @@ import org.springframework.oxm.jaxb.Jaxb2Marshaller;
 import org.springframework.ws.config.annotation.EnableWs;
 import org.springframework.ws.config.annotation.WsConfigurerAdapter;
 import org.springframework.ws.server.EndpointInterceptor;
-import org.springframework.ws.soap.SoapVersion;
 import org.springframework.ws.soap.saaj.SaajSoapMessageFactory;
-import org.springframework.ws.soap.server.endpoint.interceptor.PayloadValidatingInterceptor;
 import org.springframework.ws.transport.http.MessageDispatcherServlet;
 import org.springframework.ws.wsdl.wsdl11.DefaultWsdl11Definition;
 import org.springframework.xml.xsd.SimpleXsdSchema;
 import org.springframework.xml.xsd.XsdSchema;
 
+import java.util.List;
+
 @EnableWs
 @Configuration
 class WebServiceConfig extends WsConfigurerAdapter {
+    private final UserService userService;
+
+    WebServiceConfig(UserService userService) {
+        this.userService = userService;
+    }
 
     @Bean
     public SaajSoapMessageFactory messageFactory() throws SOAPException {
@@ -46,22 +49,27 @@ class WebServiceConfig extends WsConfigurerAdapter {
     }
 
     @Bean
-    public UserAuthenticator authenticationInterceptor(UserService userService) {
+    public UserAuthenticator userAuthenticator(UserService userService) {
         return new UserAuthenticator(userService);
     }
 
     @Bean
-    public EndpointInterceptor[] endpointInterceptors(UserAuthenticator userAuthenticator) {
-        return new EndpointInterceptor[] { userAuthenticator };
+    public UserAuthenticator authenticationInterceptor(UserService userService) {
+        return new UserAuthenticator(userService);
+    }
+
+    @Override
+    public void addInterceptors(List<EndpointInterceptor> interceptors) {
+        interceptors.add(userAuthenticator(userService));
     }
 
     @Bean
     public Jaxb2Marshaller marshaller() {
         Jaxb2Marshaller marshaller = new Jaxb2Marshaller();
         marshaller.setContextPaths(
-                "com.ilelli.airportws.booking"
-                //"com.ilelli.airportws.flights",
-                //"com.ilelli.airportws.user"
+                "com.ilelli.airportws.booking",
+                "com.ilelli.airportws.flights",
+                "com.ilelli.airportws.user"
         );
         return marshaller;
     }

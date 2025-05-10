@@ -42,7 +42,7 @@ public class UserAuthenticator implements EndpointInterceptor {
             Node node = (Node) it.next();
             String localName = node.getLocalName();
             String value = node.getValue();
-
+            System.out.println(localName);
             if ("login".equalsIgnoreCase(localName)) {
                 login = value;
             } else if ("password".equalsIgnoreCase(localName)) {
