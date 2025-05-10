@@ -9,5 +9,4 @@ class AirportWsApplicationTests {
 	@Test
 	void contextLoads() {
 	}
-
 }

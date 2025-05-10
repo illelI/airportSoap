@@ -5,6 +5,7 @@ import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlRootElement;
 import jakarta.xml.bind.annotation.XmlType;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @XmlAccessorType(XmlAccessType.FIELD)
@@ -14,6 +15,7 @@ import lombok.Setter;
 @XmlRootElement(name = "BookingResponse", namespace = "http://ilelli.com/airport/booking")
 @Getter
 @Setter
-class BookingResponse {
+@NoArgsConstructor
+public class BookingResponse {
     private BookingStatus status;
 }

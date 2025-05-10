@@ -17,8 +17,8 @@ class Flight {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID id;
     private String flightNumber;
-    private String from;
-    private String to;
+    private String departure;
+    private String destination;
     private LocalDateTime date;
     private SeatClass seatClass;
     private int price;

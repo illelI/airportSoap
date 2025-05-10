@@ -1,17 +1,25 @@
 package com.ilelli.airportws.config;
 
+import com.ilelli.airportws.user.UserAuthenticator;
+import com.ilelli.airportws.user.UserService;
 import jakarta.xml.soap.MessageFactory;
 import jakarta.xml.soap.SOAPConstants;
 import jakarta.xml.soap.SOAPException;
+import jakarta.xml.ws.handler.MessageContext;
+import jakarta.xml.ws.handler.soap.SOAPMessageContext;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.web.servlet.ServletRegistrationBean;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.ClassPathResource;
+import org.springframework.oxm.jaxb.Jaxb2Marshaller;
 import org.springframework.ws.config.annotation.EnableWs;
 import org.springframework.ws.config.annotation.WsConfigurerAdapter;
+import org.springframework.ws.server.EndpointInterceptor;
+import org.springframework.ws.soap.SoapVersion;
 import org.springframework.ws.soap.saaj.SaajSoapMessageFactory;
+import org.springframework.ws.soap.server.endpoint.interceptor.PayloadValidatingInterceptor;
 import org.springframework.ws.transport.http.MessageDispatcherServlet;
 import org.springframework.ws.wsdl.wsdl11.DefaultWsdl11Definition;
 import org.springframework.xml.xsd.SimpleXsdSchema;
@@ -36,6 +44,28 @@ class WebServiceConfig extends WsConfigurerAdapter {
         servlet.setTransformWsdlLocations(true);
         return new ServletRegistrationBean<>(servlet, "/ws/*");
     }
+
+    @Bean
+    public UserAuthenticator authenticationInterceptor(UserService userService) {
+        return new UserAuthenticator(userService);
+    }
+
+    @Bean
+    public EndpointInterceptor[] endpointInterceptors(UserAuthenticator userAuthenticator) {
+        return new EndpointInterceptor[] { userAuthenticator };
+    }
+
+    @Bean
+    public Jaxb2Marshaller marshaller() {
+        Jaxb2Marshaller marshaller = new Jaxb2Marshaller();
+        marshaller.setContextPaths(
+                "com.ilelli.airportws.booking"
+                //"com.ilelli.airportws.flights",
+                //"com.ilelli.airportws.user"
+        );
+        return marshaller;
+    }
+
 
     @Bean(name = "booking")
     public DefaultWsdl11Definition bookingWsdl11Definition(@Qualifier("bookingSchema") XsdSchema schema) {

@@ -6,7 +6,7 @@
         xmlns:tns="http://ilelli.com/airport/flights"
         elementFormDefault="qualified">
 
-    <xs:import namespace="http://ilelli.com/airport/booking" schemaLocation="http://localhost:8080/xsd/booking.xsd"/>
+    <xs:import namespace="http://ilelli.com/airport/booking" schemaLocation="booking.xsd"/>
 
     <xs:element name="FlightsRequest">
         <xs:complexType>

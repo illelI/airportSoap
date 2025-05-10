@@ -3,9 +3,10 @@
         xmlns:xs="http://www.w3.org/2001/XMLSchema"
         targetNamespace="http://ilelli.com/airport/user"
         xmlns:tns="http://ilelli.com/airport/user"
+        xmlns:booking="http://ilelli.com/airport/booking"
         elementFormDefault="qualified">
 
-    <xs:import namespace="http://ilelli.com/airport/booking" schemaLocation="http://localhost:8080/xsd/booking.xsd"/>
+    <xs:import namespace="http://ilelli.com/airport/booking" schemaLocation="booking.xsd"/>
 
     <xs:element name="RegisterRequest">
         <xs:complexType>
@@ -18,7 +19,16 @@
         </xs:complexType>
     </xs:element>
 
-    <xs:element name="getTicketRequest">
+    <xs:element name="LoginRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="username" type="xs:string"/>
+                <xs:element name="password" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="TicketsRequest">
         <xs:complexType>
             <xs:sequence>
                 <xs:element name="userId" type="xs:string" />
@@ -26,12 +36,55 @@
         </xs:complexType>
     </xs:element>
 
-    <xs:element name="UserResponse">
+    <xs:element name="TicketPdfRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="ticket" type="tns:TicketDetails" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="LoginResponse">
         <xs:complexType>
             <xs:sequence>
                 <xs:element name="id" type="xs:string"/>
             </xs:sequence>
         </xs:complexType>
     </xs:element>
+
+    <xs:element name="RegisterResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="id" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="TicketsResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="ticket" type="tns:TicketDetails" minOccurs="0" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="TicketPdfResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="ticketPdf" type="xs:base64Binary">
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:complexType name="TicketDetails">
+        <xs:sequence>
+            <xs:element name="passengerName" type="xs:string"/>
+            <xs:element name="passengerSurname" type="xs:string" />
+            <xs:element name="flightNumber" type="xs:string" />
+            <xs:element name="departureDate" type="xs:dateTime"/>
+            <xs:element name="seatClass" type="booking:SeatClass" />
+        </xs:sequence>
+    </xs:complexType>
 
 </xs:schema>

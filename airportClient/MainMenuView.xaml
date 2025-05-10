@@ -1,0 +1,11 @@
+﻿<UserControl x:Class="AirportClient.MainMenuView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             Height="300" Width="250">
+    <Grid>
+        <Button Name="buttonFlightDatabase" Content="Baza lotów" VerticalAlignment="Top" Height="40" Width="200" Margin="20,20,20,0" Click="buttonFlightDatabase_Click"/>
+        <Button Name="buttonSearchFlight" Content="Wyszukaj lot" VerticalAlignment="Top" Height="40" Width="200" Margin="20,70,20,0" Click="buttonSearchFlight_Click"/>
+        <Button Name="buttonMyTickets" Content="Moje bilety" VerticalAlignment="Top" Height="40" Width="200" Margin="20,120,20,0" Click="buttonMyTickets_Click"/>
+        <Button Name="buttonCheckTicket" Content="Sprawdź bilet" VerticalAlignment="Top" Height="40" Width="200" Margin="20,170,20,0" Click="buttonCheckTicket_Click"/>
+    </Grid>
+</UserControl>

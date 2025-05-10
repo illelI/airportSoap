@@ -7,6 +7,7 @@ import jakarta.xml.bind.annotation.XmlRootElement;
 import jakarta.xml.bind.annotation.XmlSchemaType;
 import jakarta.xml.bind.annotation.XmlType;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDateTime;
@@ -22,7 +23,8 @@ import java.time.LocalDateTime;
 @XmlRootElement(name = "BookingRequest", namespace = "http://ilelli.com/airport/booking")
 @Getter
 @Setter
-class BookingRequest {
+@NoArgsConstructor
+public class BookingRequest {
     private String passengerName;
     private String passengerSurname;
     private String flightNumber;

@@ -1,6 +1,7 @@
 package com.ilelli.airportws.user;
 
 import com.ilelli.airportws.shared.Ticket;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -13,10 +14,11 @@ import java.util.UUID;
 
 @Entity
 @Data
-class User {
+class Users {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID id;
+    @Column(unique = true)
     private String login;
     private String password;
     private String name;
