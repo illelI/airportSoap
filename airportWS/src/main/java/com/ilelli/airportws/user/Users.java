@@ -1,8 +1,10 @@
 package com.ilelli.airportws.user;
 
 import com.ilelli.airportws.shared.Ticket;
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -14,7 +16,7 @@ import java.util.UUID;
 
 @Entity
 @Data
-class Users {
+public class Users {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID id;
@@ -23,6 +25,7 @@ class Users {
     private String password;
     private String name;
     private String surname;
-    @OneToMany
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<Ticket> tickets;
 }

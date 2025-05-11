@@ -25,5 +25,21 @@ namespace AirportClient
         {
             MainContent.Content = new MainMenuView(this);
         }
+
+        public void NavigateToFlightsDatabase()
+        {
+            MainContent.Content = new FlightsDatabase(this);
+        }
+
+        public void NavigateToFlightSearch()
+        {
+            MainContent.Content = new FlightSearch(this);
+        }
+
+        public void NavigateToMyTickets()
+        {
+            MainContent.Content = new UserTicketsView(this);
+        }
+
     }
 }

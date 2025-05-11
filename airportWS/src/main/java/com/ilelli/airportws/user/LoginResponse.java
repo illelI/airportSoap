@@ -11,7 +11,9 @@ import lombok.Setter;
 
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-        "id"
+        "id",
+        "name",
+        "surname"
 })
 @XmlRootElement(name = "LoginResponse", namespace = "http://ilelli.com/airport/user")
 @Getter
@@ -20,4 +22,8 @@ import lombok.Setter;
 public class LoginResponse {
     @XmlElement(namespace = "http://ilelli.com/airport/user")
     private String id;
+    @XmlElement(namespace = "http://ilelli.com/airport/user")
+    private String name;
+    @XmlElement(namespace = "http://ilelli.com/airport/user")
+    private String surname;
 }

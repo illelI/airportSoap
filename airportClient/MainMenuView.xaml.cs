@@ -1,4 +1,5 @@
-﻿using AirportClient;
+﻿using airportClient;
+using AirportClient;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,25 +28,24 @@ namespace AirportClient
 
         private void buttonFlightDatabase_Click(object sender, RoutedEventArgs e)
         {
-
+            _mainWindow.NavigateToFlightsDatabase();
         }
 
         private void buttonSearchFlight_Click(object sender, RoutedEventArgs e)
         {
-            // Logika dla wyszukiwania lotów
-            MessageBox.Show("Wyszukujemy lot...");
+            _mainWindow.NavigateToFlightSearch();
         }
 
         private void buttonMyTickets_Click(object sender, RoutedEventArgs e)
         {
             // Logika dla moich biletów
-            MessageBox.Show("Pokazujemy moje bilety...");
+            _mainWindow.NavigateToMyTickets();
         }
 
         private void buttonCheckTicket_Click(object sender, RoutedEventArgs e)
         {
-            // Logika dla sprawdzania biletu
-            MessageBox.Show("Sprawdzamy bilet...");
+            CheckTicketWindow checkTicketWindow = new CheckTicketWindow();
+            checkTicketWindow.ShowDialog();
         }
     }
 }

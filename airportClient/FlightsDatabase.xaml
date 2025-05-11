@@ -1,0 +1,35 @@
+﻿<UserControl x:Class="AirportClient.FlightsDatabase"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Height="600" Width="800">
+    <DockPanel>
+        <!-- Górny pasek z przyciskiem -->
+        <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" HorizontalAlignment="Left" Margin="10">
+            <Button Content="Powrót do menu" Click="BackToMenu_Click" Padding="10,5" />
+        </StackPanel>
+
+        <!-- Główna zawartość -->
+        <DataGrid x:Name="FlightsDataGrid"
+                  AutoGenerateColumns="False"
+                  IsReadOnly="True"
+                  CanUserAddRows="False"
+                  Margin="10">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Flight Number" Binding="{Binding flightNumber}" />
+                <DataGridTextColumn Header="From" Binding="{Binding from}" />
+                <DataGridTextColumn Header="To" Binding="{Binding to}" />
+                <DataGridTextColumn Header="Date" Binding="{Binding date}" />
+                <DataGridTextColumn Header="Price" Binding="{Binding price}" />
+
+                <!-- Kolumna z przyciskiem -->
+                <DataGridTemplateColumn Header="Action">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="Book" Click="BookButton_Click" Padding="5,2" Tag="{Binding}" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+    </DockPanel>
+</UserControl>

@@ -34,6 +34,10 @@ namespace Booking
         
         private string flightNumberField;
         
+        private string fromField;
+        
+        private string toField;
+        
         private System.DateTime departureDateField;
         
         private SeatClass seatClassField;
@@ -82,6 +86,34 @@ namespace Booking
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Order=3)]
+        public string from
+        {
+            get
+            {
+                return this.fromField;
+            }
+            set
+            {
+                this.fromField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=4)]
+        public string to
+        {
+            get
+            {
+                return this.toField;
+            }
+            set
+            {
+                this.toField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=5)]
         public System.DateTime departureDate
         {
             get
@@ -95,7 +127,7 @@ namespace Booking
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=4)]
+        [System.Xml.Serialization.XmlElementAttribute(Order=6)]
         public SeatClass seatClass
         {
             get
@@ -269,8 +301,8 @@ namespace Booking
         {
             return System.Threading.Tasks.Task.Factory.FromAsync(((System.ServiceModel.ICommunicationObject)(this)).BeginOpen(null, null), new System.Action<System.IAsyncResult>(((System.ServiceModel.ICommunicationObject)(this)).EndOpen));
         }
-        
-        private static System.ServiceModel.Channels.Binding GetBindingForEndpoint(EndpointConfiguration endpointConfiguration)
+
+        public static System.ServiceModel.Channels.Binding GetBindingForEndpoint(EndpointConfiguration endpointConfiguration)
         {
             if ((endpointConfiguration == EndpointConfiguration.BookingPortSoap11))
             {
@@ -283,8 +315,8 @@ namespace Booking
             }
             throw new System.InvalidOperationException(string.Format("Nie można znaleźć punktu końcowego o nazwie „{0}”.", endpointConfiguration));
         }
-        
-        private static System.ServiceModel.EndpointAddress GetEndpointAddress(EndpointConfiguration endpointConfiguration)
+
+        public static System.ServiceModel.EndpointAddress GetEndpointAddress(EndpointConfiguration endpointConfiguration)
         {
             if ((endpointConfiguration == EndpointConfiguration.BookingPortSoap11))
             {
@@ -292,13 +324,13 @@ namespace Booking
             }
             throw new System.InvalidOperationException(string.Format("Nie można znaleźć punktu końcowego o nazwie „{0}”.", endpointConfiguration));
         }
-        
-        private static System.ServiceModel.Channels.Binding GetDefaultBinding()
+
+        public static System.ServiceModel.Channels.Binding GetDefaultBinding()
         {
             return BookingPortClient.GetBindingForEndpoint(EndpointConfiguration.BookingPortSoap11);
         }
-        
-        private static System.ServiceModel.EndpointAddress GetDefaultEndpointAddress()
+
+        public static System.ServiceModel.EndpointAddress GetDefaultEndpointAddress()
         {
             return BookingPortClient.GetEndpointAddress(EndpointConfiguration.BookingPortSoap11);
         }

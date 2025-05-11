@@ -11,7 +11,7 @@ import lombok.Setter;
 
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-        "ticketDetails"
+        "ticket"
 })
 @XmlRootElement(name = "TicketPdfRequest", namespace = "http://ilelli.com/airport/user")
 @Getter
@@ -19,5 +19,5 @@ import lombok.Setter;
 @NoArgsConstructor
 public class TicketPdfRequest {
     @XmlElement(namespace = "http://ilelli.com/airport/user")
-    private TicketDetails ticketDetails;
+    private TicketDetails ticket;
 }

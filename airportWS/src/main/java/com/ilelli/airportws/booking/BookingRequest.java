@@ -20,6 +20,8 @@ import java.time.LocalDateTime;
         "passengerName",
         "passengerSurname",
         "flightNumber",
+        "from",
+        "to",
         "departureDate",
         "seatClass"
 })
@@ -34,6 +36,10 @@ public class BookingRequest {
     private String passengerSurname;
     @XmlElement(namespace = "http://ilelli.com/airport/booking")
     private String flightNumber;
+    @XmlElement(namespace = "http://ilelli.com/airport/booking")
+    private String from;
+    @XmlElement(namespace = "http://ilelli.com/airport/booking")
+    private String to;
     @XmlElement(namespace = "http://ilelli.com/airport/booking")
     @XmlSchemaType(name = "date")
     @XmlJavaTypeAdapter(LocalDateTimeAdapter.class)

@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET8_0;NETCOREAPP
 C:\Users\Admin\Desktop\rsi\airportSoap\airportClient\App.xaml
-4-730623012
+8-2085947397
 
-12-1312981298
+16-735252532
 212-2023085957
-LoginView.xaml;MainMenuView.xaml;MainWindow.xaml;RegisterView.xaml;
+CheckTicketWindow.xaml;FlightsDatabase.xaml;FlightSearch.xaml;LoginView.xaml;MainMenuView.xaml;MainWindow.xaml;RegisterView.xaml;UserTicketsView.xaml;
 
 False
 

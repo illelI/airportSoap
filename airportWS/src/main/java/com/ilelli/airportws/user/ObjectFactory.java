@@ -15,11 +15,16 @@ public class ObjectFactory {
     private static final QName REGISTER_RESPONSE_QNAME = new QName("http://ilelli.com/airport/user", "RegisterResponse");
     private static final QName TICKETS_RESPONSE_QNAME = new QName("http://ilelli.com/airport/user", "TicketsResponse");
     private static final QName TICKET_PDF_RESPONSE_QNAME = new QName("http://ilelli.com/airport/user", "TicketPdfResponse");
+    private static final QName CHECK_TICKET_RESPONSE_QNAME = new QName("http://ilelli.com/airport/user", "CheckTicketResponse");
+    private static final QName CHECK_TICKET_REQUEST_QNAME = new QName("http://ilelli.com/airport/user", "CheckTicketRequest");
 
     public ObjectFactory() {
     }
 
     public RegisterRequest createRegisterRequest() {
+        return new RegisterRequest();
+    }
+    public RegisterRequest createCheckTicketRequest() {
         return new RegisterRequest();
     }
 
@@ -50,6 +55,9 @@ public class ObjectFactory {
     public TicketPdfResponse createTicketPdfResponse() {
         return new TicketPdfResponse();
     }
+    public TicketPdfResponse createCheckTicketResponse() {
+        return new TicketPdfResponse();
+    }
 
     public TicketDetails createTicketDetails() {
         return new TicketDetails();
@@ -57,6 +65,9 @@ public class ObjectFactory {
 
     public JAXBElement<RegisterRequest> createRegisterRequest(RegisterRequest value) {
         return new JAXBElement<>(REGISTER_REQUEST_QNAME, RegisterRequest.class, null, value);
+    }
+    public JAXBElement<CheckTicketRequest> createCheckTicketRequest(CheckTicketRequest value) {
+        return new JAXBElement<>(CHECK_TICKET_REQUEST_QNAME, CheckTicketRequest.class, null, value);
     }
 
     public JAXBElement<LoginRequest> createLoginRequest(LoginRequest value) {
@@ -85,5 +96,8 @@ public class ObjectFactory {
 
     public JAXBElement<TicketPdfResponse> createTicketPdfResponse(TicketPdfResponse value) {
         return new JAXBElement<>(TICKET_PDF_RESPONSE_QNAME, TicketPdfResponse.class, null, value);
+    }
+    public JAXBElement<CheckTicketResponse> createCheckTicketResponse(CheckTicketResponse value) {
+        return new JAXBElement<>(CHECK_TICKET_RESPONSE_QNAME, CheckTicketResponse.class, null, value);
     }
 }

@@ -119,3 +119,12 @@ C:\Users\Admin\Desktop\rsi\airportSoap\airportClient\obj\Debug\net8.0-windows\re
 C:\Users\Admin\Desktop\rsi\airportSoap\airportClient\obj\Debug\net8.0-windows\airportClient.pdb
 C:\Users\Admin\Desktop\rsi\airportSoap\airportClient\obj\Debug\net8.0-windows\airportClient.genruntimeconfig.cache
 C:\Users\Admin\Desktop\rsi\airportSoap\airportClient\obj\Debug\net8.0-windows\ref\airportClient.dll
+C:\Users\Admin\Desktop\rsi\airportSoap\airportClient\obj\Debug\net8.0-windows\FlightsDatabase.baml
+C:\Users\Admin\Desktop\rsi\airportSoap\airportClient\obj\Debug\net8.0-windows\FlightsDatabase.g.cs
+C:\Users\Admin\Desktop\rsi\airportSoap\airportClient\obj\Debug\net8.0-windows\FlightSearch.baml
+C:\Users\Admin\Desktop\rsi\airportSoap\airportClient\obj\Debug\net8.0-windows\FlightSearch.g.cs
+C:\Users\Admin\Desktop\rsi\airportSoap\airportClient\obj\Debug\net8.0-windows\UserTicketsView.baml
+C:\Users\Admin\Desktop\rsi\airportSoap\airportClient\obj\Debug\net8.0-windows\UserTicketsView.g.cs
+C:\Users\Admin\Desktop\rsi\airportSoap\airportClient\bin\Debug\net8.0-windows\airportClient.dll.config
+C:\Users\Admin\Desktop\rsi\airportSoap\airportClient\obj\Debug\net8.0-windows\CheckTicketWindow.g.cs
+C:\Users\Admin\Desktop\rsi\airportSoap\airportClient\obj\Debug\net8.0-windows\CheckTicketWindow.baml

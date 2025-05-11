@@ -11,4 +11,6 @@ import java.util.UUID;
 @Repository
 interface FlightsRepository extends JpaRepository<Flight, UUID> {
     List<Flight> findAllByDepartureAndDestinationAndSeatClassAndDateAfterAndDateBefore(String from, String to, SeatClass seatClass, LocalDateTime dateTime, LocalDateTime maxDate);
+    List<Flight> findAllByDateAfterAndDateBefore(LocalDateTime date, LocalDateTime ddd);
+    List<Flight> findAllByDepartureAndDestinationAndSeatClass(String from, String to, SeatClass seatClass);
 }

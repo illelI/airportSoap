@@ -1,15 +1,16 @@
 package com.ilelli.airportws.user;
 
-import jakarta.xml.soap.Node;
-import jakarta.xml.soap.SOAPHeader;
-import jakarta.xml.soap.SOAPHeaderElement;
-import jakarta.xml.soap.SOAPMessage;
 import org.springframework.ws.context.MessageContext;
 import org.springframework.ws.server.EndpointInterceptor;
 import org.springframework.ws.soap.SoapHeader;
+import org.springframework.ws.soap.SoapHeaderElement;
 import org.springframework.ws.soap.SoapMessage;
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
 
 import javax.xml.namespace.QName;
+import javax.xml.transform.Source;
+import javax.xml.transform.dom.DOMSource;
 import java.util.Iterator;
 
 public class UserAuthenticator implements EndpointInterceptor {
@@ -22,10 +23,10 @@ public class UserAuthenticator implements EndpointInterceptor {
     @Override
     public boolean handleRequest(MessageContext messageContext, Object o) throws Exception {
         QName operation = (QName) messageContext.getProperty("javax.xml.ws.wsdl.operation");
+
         if (operation != null && "register".equalsIgnoreCase(operation.getLocalPart())) {
             return true;
         }
-
         SoapMessage soapMessage = (SoapMessage) messageContext.getRequest();
         SoapHeader header = soapMessage.getSoapHeader();
 
@@ -33,27 +34,35 @@ public class UserAuthenticator implements EndpointInterceptor {
             return false;
         }
 
-        Iterator<?> it = header.examineAllHeaderElements();
+        Iterator<SoapHeaderElement> it = header.examineAllHeaderElements();
 
         String login = null;
         String password = null;
 
         while (it.hasNext()) {
-            Node node = (Node) it.next();
-            String localName = node.getLocalName();
-            String value = node.getValue();
-            System.out.println(localName);
-            if ("login".equalsIgnoreCase(localName)) {
-                login = value;
-            } else if ("password".equalsIgnoreCase(localName)) {
-                password = value;
+            SoapHeaderElement element = it.next();
+            Source source = element.getSource();
+
+            if (source instanceof DOMSource) {
+                Node node = ((DOMSource) source).getNode();
+                if (node instanceof Element) {
+                    Element el = (Element) node;
+                    String localName = el.getLocalName();
+                    String value = el.getTextContent();
+
+
+                    if ("login".equalsIgnoreCase(localName)) {
+                        login = value;
+                    } else if ("password".equalsIgnoreCase(localName)) {
+                        password = value;
+                    }
+                }
             }
         }
 
         if (login == null || password == null) {
             return false;
         }
-
         return userService.checkUser(login, password);
     }
 

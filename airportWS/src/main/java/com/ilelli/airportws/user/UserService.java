@@ -17,6 +17,7 @@ import java.io.ByteArrayOutputStream;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
 @Service
 public class UserService {
@@ -28,35 +29,48 @@ public class UserService {
         this.ticketRepository = ticketRepository;
     }
 
-    public String register(RegisterRequest request) {
+    public RegisterResponse register(RegisterRequest request) {
         Users users = requestToUser(request);
-        System.out.println(request.getName() + " XD " + request.getPassword());
-        if (userRepository.findUserByLogin(users.getLogin()).isPresent()) {
+        if (userRepository.findFirstByLogin(users.getLogin()).isPresent()) {
             throw new IllegalArgumentException();
         }
         userRepository.save(users);
-        return users.getId().toString();
+        RegisterResponse response = new RegisterResponse();
+        response.setId(users.getId().toString());
+        response.setName(users.getName());
+        response.setSurname(users.getSurname());
+        return response;
     }
 
     public boolean checkUser(String login, String password) {
-        Optional<Users> user = userRepository.findUserByLogin(login);
+        Optional<Users> user = userRepository.findFirstByLogin(login);
         return user.map(value -> value.getPassword().equals(password)).orElse(false);
     }
 
-    public String login(String login, String password) {
-        Optional<Users> user = userRepository.findUserByLogin(login);
+    public boolean checkTicket(String id) {
+        return ticketRepository.findById(UUID.fromString(id)).isPresent();
+    }
+
+    public LoginResponse login(String login, String password) {
+        Optional<Users> user = userRepository.findFirstByLogin(login);
         if (user.isEmpty()) {
             return null;
         }
-        return user.get().getPassword().equals(password) ? user.get().getId().toString() : null;
+        if (!user.get().getPassword().equals(password))
+            return null;
+        LoginResponse response = new LoginResponse();
+        response.setId(user.get().getId().toString());
+        response.setName(user.get().getName());
+        response.setSurname(user.get().getSurname());
+        return response;
     }
 
     public List<TicketDetails> getUserTickets(String userId) {
-        return List.of();
+        return userRepository.findFirstById(UUID.fromString(userId)).getTickets().stream().map(this::ticketToDetailsMapper).toList();
     }
 
     public byte[] getTicketPdf(TicketDetails ticketDetails) {
-        Ticket ticket = new Ticket();
+        Ticket ticket = detailsToTicketMapper(ticketDetails);
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
         try {
             PdfWriter writer = new PdfWriter(byteArrayOutputStream);
@@ -73,8 +87,11 @@ public class UserService {
             Table table = new Table(UnitValue.createPercentArray(new float[]{30, 70}))
                     .useAllAvailableWidth();
 
+            addRow(table, "Ticket number", ticket.getId().toString());
             addRow(table, "Name", ticket.getPassengerName());
             addRow(table, "Surname", ticket.getPassengerSurname());
+            addRow(table, "From", ticket.getDeparture());
+            addRow(table, "To", ticket.getDestination());
             addRow(table, "Flight number", ticket.getFlightNumber());
             addRow(table, "Departure date", ticket.getDepartureDate().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm")));
             addRow(table, "Seat class", ticket.getSeatClass().toString());
@@ -83,6 +100,7 @@ public class UserService {
             document.close();
             return byteArrayOutputStream.toByteArray();
         } catch (Exception e) {
+            e.printStackTrace();
             return null;
         }
     }
@@ -99,5 +117,23 @@ public class UserService {
     private void addRow(Table table, String label, String value) {
         table.addCell(new Cell().add(new Paragraph(label)).setBackgroundColor(ColorConstants.LIGHT_GRAY));
         table.addCell(new Cell().add(new Paragraph(value)));
+    }
+
+    private TicketDetails ticketToDetailsMapper(Ticket ticket) {
+        return new TicketDetails(ticket.getId().toString(), ticket.getPassengerName(), ticket.getPassengerSurname(), ticket.getDeparture(), ticket.getDestination(), ticket.getFlightNumber(), ticket.getDepartureDate(),
+                ticket.getSeatClass());
+    }
+
+    private Ticket detailsToTicketMapper(TicketDetails details) {
+        Ticket ticket = new Ticket();
+        ticket.setId(UUID.fromString(details.getId()));
+        ticket.setPassengerName(details.getPassengerName());
+        ticket.setPassengerSurname(details.getPassengerSurname());
+        ticket.setDestination(details.getDestination());
+        ticket.setDeparture(details.getDeparture());
+        ticket.setDepartureDate(details.getDepartureDate());
+        ticket.setSeatClass(details.getSeatClass());
+        ticket.setFlightNumber(details.getFlightNumber());
+        return ticket;
     }
 }

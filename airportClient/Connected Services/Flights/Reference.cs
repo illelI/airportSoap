@@ -18,95 +18,11 @@ namespace Flights
         
         [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        System.Threading.Tasks.Task<Flights.AllFlightsResponse> AllFlightsAsync(Flights.AllFlightsRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         System.Threading.Tasks.Task<Flights.FlightsResponse> FlightsAsync(Flights.FlightsRequest1 request);
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://ilelli.com/airport/flights")]
-    public partial class FlightsRequest
-    {
-        
-        private string fromField;
-        
-        private string toField;
-        
-        private System.DateTime dateField;
-        
-        private SeatClass seatClassField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-        public string from
-        {
-            get
-            {
-                return this.fromField;
-            }
-            set
-            {
-                this.fromField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
-        public string to
-        {
-            get
-            {
-                return this.toField;
-            }
-            set
-            {
-                this.toField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(DataType="date", Order=2)]
-        public System.DateTime date
-        {
-            get
-            {
-                return this.dateField;
-            }
-            set
-            {
-                this.dateField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=3)]
-        public SeatClass seatClass
-        {
-            get
-            {
-                return this.seatClassField;
-            }
-            set
-            {
-                this.seatClassField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://ilelli.com/airport/booking")]
-    public enum SeatClass
-    {
-        
-        /// <remarks/>
-        ECONOMY,
-        
-        /// <remarks/>
-        BUSINESS,
-        
-        /// <remarks/>
-        FIRST,
     }
     
     /// <remarks/>
@@ -123,6 +39,8 @@ namespace Flights
         private string toField;
         
         private System.DateTime dateField;
+        
+        private SeatClass seatClassField;
         
         private int priceField;
         
@@ -184,6 +102,20 @@ namespace Flights
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Order=4)]
+        public SeatClass seatClass
+        {
+            get
+            {
+                return this.seatClassField;
+            }
+            set
+            {
+                this.seatClassField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=5)]
         public int price
         {
             get
@@ -196,6 +128,78 @@ namespace Flights
             }
         }
     }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://ilelli.com/airport/booking")]
+    public enum SeatClass
+    {
+        
+        /// <remarks/>
+        ECONOMY,
+        
+        /// <remarks/>
+        BUSINESS,
+        
+        /// <remarks/>
+        FIRST,
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContract(IsWrapped = true, WrapperName = "AllFlightsRequest", WrapperNamespace = "http://ilelli.com/airport/flights")]
+public class AllFlightsRequest
+{
+    public AllFlightsRequest() {}
+}
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class AllFlightsResponse
+    {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="AllFlightsResponse", Namespace="http://ilelli.com/airport/flights", Order=0)]
+        [System.Xml.Serialization.XmlArrayItemAttribute("flight", IsNullable=false)]
+        public Flights.FlightDetails[] AllFlightsResponse1;
+        
+        public AllFlightsResponse()
+        {
+        }
+        
+        public AllFlightsResponse(Flights.FlightDetails[] AllFlightsResponse1)
+        {
+            this.AllFlightsResponse1 = AllFlightsResponse1;
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.Xml.Serialization.XmlType(AnonymousType = true, Namespace = "http://ilelli.com/airport/flights")]
+public partial class FlightsRequest
+{
+    [System.Xml.Serialization.XmlElement(Order = 0)]
+    public string from { get; set; }
+
+    [System.Xml.Serialization.XmlElement(Order = 1)]
+    public string to { get; set; }
+
+    [System.Xml.Serialization.XmlIgnore]
+    public DateTime Date { get; set; }
+
+    [System.Xml.Serialization.XmlElement("date", Order = 2)]
+    public string DateString
+    {
+        get => Date.ToString("yyyy-MM-ddTHH:mm:ss");
+        set => Date = DateTime.Parse(value);
+    }
+
+    [System.Xml.Serialization.XmlElement(Order = 3)]
+    public SeatClass seatClass { get; set; }
+}
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
@@ -289,6 +293,18 @@ namespace Flights
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<Flights.AllFlightsResponse> Flights.FlightsPort.AllFlightsAsync(Flights.AllFlightsRequest request)
+        {
+            return base.Channel.AllFlightsAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<Flights.AllFlightsResponse> AllFlightsAsync(AllFlightsRequest AllFlightsRequest1)
+        {
+            Flights.AllFlightsRequest inValue = new Flights.AllFlightsRequest();
+            return ((Flights.FlightsPort)(this)).AllFlightsAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
         System.Threading.Tasks.Task<Flights.FlightsResponse> Flights.FlightsPort.FlightsAsync(Flights.FlightsRequest1 request)
         {
             return base.Channel.FlightsAsync(request);
@@ -305,8 +321,8 @@ namespace Flights
         {
             return System.Threading.Tasks.Task.Factory.FromAsync(((System.ServiceModel.ICommunicationObject)(this)).BeginOpen(null, null), new System.Action<System.IAsyncResult>(((System.ServiceModel.ICommunicationObject)(this)).EndOpen));
         }
-        
-        private static System.ServiceModel.Channels.Binding GetBindingForEndpoint(EndpointConfiguration endpointConfiguration)
+
+        public static System.ServiceModel.Channels.Binding GetBindingForEndpoint(EndpointConfiguration endpointConfiguration)
         {
             if ((endpointConfiguration == EndpointConfiguration.FlightsPortSoap11))
             {
@@ -319,8 +335,8 @@ namespace Flights
             }
             throw new System.InvalidOperationException(string.Format("Nie można znaleźć punktu końcowego o nazwie „{0}”.", endpointConfiguration));
         }
-        
-        private static System.ServiceModel.EndpointAddress GetEndpointAddress(EndpointConfiguration endpointConfiguration)
+
+        public static System.ServiceModel.EndpointAddress GetEndpointAddress(EndpointConfiguration endpointConfiguration)
         {
             if ((endpointConfiguration == EndpointConfiguration.FlightsPortSoap11))
             {
@@ -328,13 +344,13 @@ namespace Flights
             }
             throw new System.InvalidOperationException(string.Format("Nie można znaleźć punktu końcowego o nazwie „{0}”.", endpointConfiguration));
         }
-        
-        private static System.ServiceModel.Channels.Binding GetDefaultBinding()
+
+        public static System.ServiceModel.Channels.Binding GetDefaultBinding()
         {
             return FlightsPortClient.GetBindingForEndpoint(EndpointConfiguration.FlightsPortSoap11);
         }
-        
-        private static System.ServiceModel.EndpointAddress GetDefaultEndpointAddress()
+
+        public static System.ServiceModel.EndpointAddress GetDefaultEndpointAddress()
         {
             return FlightsPortClient.GetEndpointAddress(EndpointConfiguration.FlightsPortSoap11);
         }

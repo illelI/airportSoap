@@ -1,13 +1,9 @@
 package com.ilelli.airportws.flights;
 
-import jakarta.transaction.Transactional;
 import org.springframework.ws.server.endpoint.annotation.Endpoint;
 import org.springframework.ws.server.endpoint.annotation.PayloadRoot;
 import org.springframework.ws.server.endpoint.annotation.RequestPayload;
 import org.springframework.ws.server.endpoint.annotation.ResponsePayload;
-
-import java.time.LocalDate;
-import java.util.List;
 
 @Endpoint
 class FlightsEndpoint {
@@ -23,6 +19,14 @@ class FlightsEndpoint {
     public FlightsResponse getFlights(@RequestPayload FlightsRequest request) {
         FlightsResponse response = new FlightsResponse();
         response.setFlights(flightsService.findFlights(request.getFrom(), request.getTo(), request.getDate(), request.getSeatClass()));
+        return response;
+    }
+
+    @PayloadRoot(namespace = NAMESPACE, localPart = "AllFlightsRequest")
+    @ResponsePayload
+    public AllFlightsResponse getAllFlights(@RequestPayload AllFlightsRequest request) {
+        AllFlightsResponse response = new AllFlightsResponse();
+        response.setFlights(flightsService.findAllFlights());
         return response;
     }
 }

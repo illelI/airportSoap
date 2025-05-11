@@ -11,5 +11,7 @@ namespace airportClient
         public static string Login { get; set; }
         public static string Password { get; set; }
         public static string Id { get; set; }
+        public static string Name { get; set; }
+        public static string Surname { get; set; }
     }
 }

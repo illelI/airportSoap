@@ -27,14 +27,14 @@ import java.time.LocalDateTime;
 @Setter
 @NoArgsConstructor
 public class FlightsRequest {
-    @XmlElement(namespace = "http://ilelli.com/airport/flight")
+    @XmlElement(namespace = "http://ilelli.com/airport/flights")
     private String from;
-    @XmlElement(namespace = "http://ilelli.com/airport/flight")
+    @XmlElement(namespace = "http://ilelli.com/airport/flights")
     private String to;
-    @XmlElement(namespace = "http://ilelli.com/airport/flight")
+    @XmlElement(namespace = "http://ilelli.com/airport/flights")
     @XmlJavaTypeAdapter(LocalDateTimeAdapter.class)
     @XmlSchemaType(name = "date")
     private LocalDateTime date;
-    @XmlElement(namespace = "http://ilelli.com/airport/flight")
+    @XmlElement(namespace = "http://ilelli.com/airport/flights")
     private SeatClass seatClass;
 }

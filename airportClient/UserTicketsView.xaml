@@ -1,0 +1,35 @@
+﻿<UserControl x:Class="AirportClient.UserTicketsView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             Height="600" Width="800">
+    <DockPanel>
+        <!-- Górny pasek z przyciskiem -->
+        <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" HorizontalAlignment="Left" Margin="10">
+            <Button Content="Powrót do menu" Click="BackToMenu_Click" Padding="10,5" />
+        </StackPanel>
+
+        <!-- Główna zawartość -->
+        <DataGrid x:Name="TicketsDataGrid"
+                  AutoGenerateColumns="False"
+                  IsReadOnly="True"
+                  CanUserAddRows="False"
+                  Margin="10">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Flight Number" Binding="{Binding Path=flightNumber}" />
+                <DataGridTextColumn Header="From" Binding="{Binding Path=from}" />
+                <DataGridTextColumn Header="To" Binding="{Binding Path=to}" />
+                <DataGridTextColumn Header="Departure" Binding="{Binding Path=departureDate}" />
+                <DataGridTextColumn Header="Passenger" Binding="{Binding Path=passengerName}" />
+                <DataGridTextColumn Header="Class" Binding="{Binding Path=seatClass}" />
+
+                <DataGridTemplateColumn Header="PDF">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="Pobierz PDF" Click="DownloadPdf_Click" Tag="{Binding}" Padding="5,2" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+    </DockPanel>
+</UserControl>

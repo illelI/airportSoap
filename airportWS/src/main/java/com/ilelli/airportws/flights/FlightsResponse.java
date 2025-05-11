@@ -20,6 +20,6 @@ import java.util.List;
 @Setter
 @NoArgsConstructor
 public class FlightsResponse {
-    @XmlElement(namespace = "http://ilelli.com/airport/flight", name = "flight")
+    @XmlElement(namespace = "http://ilelli.com/airport/flights", name = "flight")
     private List<FlightDetails> flights;
 }

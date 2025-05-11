@@ -7,6 +7,8 @@ import java.util.Optional;
 import java.util.UUID;
 
 @Repository
-interface UserRepository extends JpaRepository<Users, UUID> {
-    Optional<Users> findUserByLogin(String login);
+public interface UserRepository extends JpaRepository<Users, UUID> {
+    Optional<Users> findFirstByLogin(String login);
+    Users findFirstById(UUID id);
+    Users findFirstByNameAndSurname(String name, String surname);
 }

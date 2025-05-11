@@ -20,5 +20,5 @@ import lombok.Setter;
 @NoArgsConstructor
 public class TicketPdfResponse {
     @XmlElement(namespace = "http://ilelli.com/airport/user")
-    private DataHandler ticketPdf;
+    private byte[] ticketPdf;
 }

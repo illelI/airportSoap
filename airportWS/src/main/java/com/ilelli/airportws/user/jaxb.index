@@ -7,4 +7,6 @@ TicketPdfRequest
 TicketPdfResponse
 TicketsRequest
 TicketsResponse
+CHeckTicketRequest
+CHeckTicketResponse
 ObjectFactory

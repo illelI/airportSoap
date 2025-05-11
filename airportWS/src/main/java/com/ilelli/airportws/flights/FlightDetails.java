@@ -18,15 +18,15 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @NoArgsConstructor
 public class FlightDetails {
-    @XmlElement(namespace = "http://ilelli.com/airport/flight")
+    @XmlElement(namespace = "http://ilelli.com/airport/flights")
     private String flightNumber;
-    @XmlElement(namespace = "http://ilelli.com/airport/flight")
+    @XmlElement(namespace = "http://ilelli.com/airport/flights")
     private String from;
-    @XmlElement(namespace = "http://ilelli.com/airport/flight")
+    @XmlElement(namespace = "http://ilelli.com/airport/flights")
     private String to;
-    @XmlElement(namespace = "http://ilelli.com/airport/flight")
+    @XmlElement(namespace = "http://ilelli.com/airport/flights")
     @XmlJavaTypeAdapter(LocalDateTimeAdapter.class)
     private LocalDateTime date;
-    @XmlElement(namespace = "http://ilelli.com/airport/flight")
+    @XmlElement(namespace = "http://ilelli.com/airport/flights")
     private int price;
 }

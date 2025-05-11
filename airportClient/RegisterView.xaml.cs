@@ -49,6 +49,8 @@ namespace AirportClient
             {
                 UserInfo.Login = login;
                 UserInfo.Password = password;
+                UserInfo.Name = firstName;
+                UserInfo.Surname = lastName;
                 UserInfo.Id = response.RegisterResponse.id;
                 _mainWindow.NavigateToMainMenu();
             }

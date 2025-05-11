@@ -6,7 +6,7 @@
         xmlns:tns="http://ilelli.com/airport/flights"
         elementFormDefault="qualified">
 
-    <xs:import namespace="http://ilelli.com/airport/booking" schemaLocation="booking.xsd"/>
+    <xs:import namespace="http://ilelli.com/airport/booking" schemaLocation="http://localhost:8080/xsd/booking.xsd"/>
 
     <xs:element name="FlightsRequest">
         <xs:complexType>
@@ -15,6 +15,17 @@
                 <xs:element name="to" type="xs:string"/>
                 <xs:element name="date" type="xs:date"/>
                 <xs:element name="seatClass" type="booking:SeatClass"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="AllFlightsRequest">
+    </xs:element>
+
+    <xs:element name="AllFlightsResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="flight" type="tns:FlightDetails" minOccurs="0" maxOccurs="unbounded"/>
             </xs:sequence>
         </xs:complexType>
     </xs:element>
@@ -33,6 +44,7 @@
             <xs:element name="from" type="xs:string" />
             <xs:element name="to" type="xs:string" />
             <xs:element name="date" type="xs:dateTime"/>
+            <xs:element name="seatClass" type="booking:SeatClass"/>
             <xs:element name="price" type="xs:int" />
         </xs:sequence>
     </xs:complexType>

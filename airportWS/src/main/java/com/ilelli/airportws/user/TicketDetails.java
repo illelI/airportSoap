@@ -14,15 +14,21 @@ import lombok.NoArgsConstructor;
 import java.time.LocalDateTime;
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "TicketDetails", propOrder = { "passengerName", "passengerSurname", "flightNumber", "departureDate", "seatClass" })
+@XmlType(name = "TicketDetails", propOrder = {"id", "passengerName", "passengerSurname","departure", "destination", "flightNumber", "departureDate", "seatClass" })
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class TicketDetails {
     @XmlElement(namespace = "http://ilelli.com/airport/user")
+    private String id;
+    @XmlElement(namespace = "http://ilelli.com/airport/user")
     private String passengerName;
     @XmlElement(namespace = "http://ilelli.com/airport/user")
     private String passengerSurname;
+    @XmlElement(namespace = "http://ilelli.com/airport/user")
+    private String departure;
+    @XmlElement(namespace = "http://ilelli.com/airport/user")
+    private String destination;
     @XmlElement(namespace = "http://ilelli.com/airport/user")
     private String flightNumber;
     @XmlElement(namespace = "http://ilelli.com/airport/user")

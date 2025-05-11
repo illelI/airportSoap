@@ -35,21 +35,19 @@ namespace AirportClient
                 return;
             }
 
-            var client = new SoapClient.UserClientWithHeaders();
+            UserInfo.Login = login;
+            UserInfo.Password = password;
 
-            var request = new User.LoginRequest();
-            request.username = login;
-            request.password = password;
-
+            var client = SoapClientFactory.CreateUserClientWithHeaders(login, password);
+            var request = new User.LoginRequest { username = login, password = password };
 
             var response = await client.LoginAsync(request);
 
-
             if (response != null && response.LoginResponse.id != null)
             {
-                UserInfo.Login = login;
-                UserInfo.Password = password;
                 UserInfo.Id = response.LoginResponse.id;
+                UserInfo.Name = response.LoginResponse.name;
+                UserInfo.Surname = response.LoginResponse.surname;
                 _mainWindow.NavigateToMainMenu();
             }
         }

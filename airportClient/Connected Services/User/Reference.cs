@@ -18,6 +18,10 @@ namespace User
         
         [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        System.Threading.Tasks.Task<User.CheckTicketResponse1> CheckTicketAsync(User.CheckTicketRequest1 request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         System.Threading.Tasks.Task<User.LoginResponse1> LoginAsync(User.LoginRequest1 request);
         
         [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
@@ -31,6 +35,190 @@ namespace User
         [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         System.Threading.Tasks.Task<User.RegisterResponse1> RegisterAsync(User.RegisterRequest1 request);
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://ilelli.com/airport/user")]
+    public partial class CheckTicketRequest
+    {
+        
+        private string ticketIdField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+        public string ticketId
+        {
+            get
+            {
+                return this.ticketIdField;
+            }
+            set
+            {
+                this.ticketIdField = value;
+            }
+        }
+    }
+
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://ilelli.com/airport/user")]
+    public partial class TicketDetails
+    {
+        private string idField;
+        private string passengerNameField;
+        private string passengerSurnameField;
+        private string departureField;
+        private string destinationField;
+        private string flightNumberField;
+        private System.DateTime departureDateField;
+        private SeatClass seatClassField;
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
+        public string id
+        {
+            get { return this.idField; }
+            set { this.idField = value; }
+        }
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
+        public string passengerName
+        {
+            get { return this.passengerNameField; }
+            set { this.passengerNameField = value; }
+        }
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
+        public string passengerSurname
+        {
+            get { return this.passengerSurnameField; }
+            set { this.passengerSurnameField = value; }
+        }
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order = 3)]
+        public string departure
+        {
+            get { return this.departureField; }
+            set { this.departureField = value; }
+        }
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order = 4)]
+        public string destination
+        {
+            get { return this.destinationField; }
+            set { this.destinationField = value; }
+        }
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order = 5)]
+        public string flightNumber
+        {
+            get { return this.flightNumberField; }
+            set { this.flightNumberField = value; }
+        }
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order = 6)]
+        public System.DateTime departureDate
+        {
+            get { return this.departureDateField; }
+            set { this.departureDateField = value; }
+        }
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order = 7)]
+        public SeatClass seatClass
+        {
+            get { return this.seatClassField; }
+            set { this.seatClassField = value; }
+        }
+    }
+
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://ilelli.com/airport/booking")]
+    public enum SeatClass
+    {
+        
+        /// <remarks/>
+        ECONOMY,
+        
+        /// <remarks/>
+        BUSINESS,
+        
+        /// <remarks/>
+        FIRST,
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://ilelli.com/airport/user")]
+    public partial class CheckTicketResponse
+    {
+        
+        private bool resultField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+        public bool result
+        {
+            get
+            {
+                return this.resultField;
+            }
+            set
+            {
+                this.resultField = value;
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class CheckTicketRequest1
+    {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ilelli.com/airport/user", Order=0)]
+        public User.CheckTicketRequest CheckTicketRequest;
+        
+        public CheckTicketRequest1()
+        {
+        }
+        
+        public CheckTicketRequest1(User.CheckTicketRequest CheckTicketRequest)
+        {
+            this.CheckTicketRequest = CheckTicketRequest;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class CheckTicketResponse1
+    {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ilelli.com/airport/user", Order=0)]
+        public User.CheckTicketResponse CheckTicketResponse;
+        
+        public CheckTicketResponse1()
+        {
+        }
+        
+        public CheckTicketResponse1(User.CheckTicketResponse CheckTicketResponse)
+        {
+            this.CheckTicketResponse = CheckTicketResponse;
+        }
     }
     
     /// <remarks/>
@@ -76,115 +264,15 @@ namespace User
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://ilelli.com/airport/user")]
-    public partial class TicketDetails
-    {
-        
-        private string passengerNameField;
-        
-        private string passengerSurnameField;
-        
-        private string flightNumberField;
-        
-        private System.DateTime departureDateField;
-        
-        private SeatClass seatClassField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-        public string passengerName
-        {
-            get
-            {
-                return this.passengerNameField;
-            }
-            set
-            {
-                this.passengerNameField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
-        public string passengerSurname
-        {
-            get
-            {
-                return this.passengerSurnameField;
-            }
-            set
-            {
-                this.passengerSurnameField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
-        public string flightNumber
-        {
-            get
-            {
-                return this.flightNumberField;
-            }
-            set
-            {
-                this.flightNumberField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=3)]
-        public System.DateTime departureDate
-        {
-            get
-            {
-                return this.departureDateField;
-            }
-            set
-            {
-                this.departureDateField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=4)]
-        public SeatClass seatClass
-        {
-            get
-            {
-                return this.seatClassField;
-            }
-            set
-            {
-                this.seatClassField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://ilelli.com/airport/booking")]
-    public enum SeatClass
-    {
-        
-        /// <remarks/>
-        ECONOMY,
-        
-        /// <remarks/>
-        BUSINESS,
-        
-        /// <remarks/>
-        FIRST,
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://ilelli.com/airport/user")]
     public partial class LoginResponse
     {
         
         private string idField;
+        
+        private string nameField;
+        
+        private string surnameField;
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Order=0)]
@@ -197,6 +285,34 @@ namespace User
             set
             {
                 this.idField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
+        public string name
+        {
+            get
+            {
+                return this.nameField;
+            }
+            set
+            {
+                this.nameField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
+        public string surname
+        {
+            get
+            {
+                return this.surnameField;
+            }
+            set
+            {
+                this.surnameField = value;
             }
         }
     }
@@ -475,6 +591,10 @@ namespace User
         
         private string idField;
         
+        private string nameField;
+        
+        private string surnameField;
+        
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Order=0)]
         public string id
@@ -486,6 +606,34 @@ namespace User
             set
             {
                 this.idField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
+        public string name
+        {
+            get
+            {
+                return this.nameField;
+            }
+            set
+            {
+                this.nameField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
+        public string surname
+        {
+            get
+            {
+                return this.surnameField;
+            }
+            set
+            {
+                this.surnameField = value;
             }
         }
     }
@@ -581,6 +729,19 @@ namespace User
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<User.CheckTicketResponse1> User.UserPort.CheckTicketAsync(User.CheckTicketRequest1 request)
+        {
+            return base.Channel.CheckTicketAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<User.CheckTicketResponse1> CheckTicketAsync(User.CheckTicketRequest CheckTicketRequest)
+        {
+            User.CheckTicketRequest1 inValue = new User.CheckTicketRequest1();
+            inValue.CheckTicketRequest = CheckTicketRequest;
+            return ((User.UserPort)(this)).CheckTicketAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
         System.Threading.Tasks.Task<User.LoginResponse1> User.UserPort.LoginAsync(User.LoginRequest1 request)
         {
             return base.Channel.LoginAsync(request);
@@ -636,7 +797,7 @@ namespace User
         {
             return System.Threading.Tasks.Task.Factory.FromAsync(((System.ServiceModel.ICommunicationObject)(this)).BeginOpen(null, null), new System.Action<System.IAsyncResult>(((System.ServiceModel.ICommunicationObject)(this)).EndOpen));
         }
-        
+
         public static System.ServiceModel.Channels.Binding GetBindingForEndpoint(EndpointConfiguration endpointConfiguration)
         {
             if ((endpointConfiguration == EndpointConfiguration.UserPortSoap11))
@@ -650,7 +811,7 @@ namespace User
             }
             throw new System.InvalidOperationException(string.Format("Nie można znaleźć punktu końcowego o nazwie „{0}”.", endpointConfiguration));
         }
-        
+
         public static System.ServiceModel.EndpointAddress GetEndpointAddress(EndpointConfiguration endpointConfiguration)
         {
             if ((endpointConfiguration == EndpointConfiguration.UserPortSoap11))
@@ -659,17 +820,17 @@ namespace User
             }
             throw new System.InvalidOperationException(string.Format("Nie można znaleźć punktu końcowego o nazwie „{0}”.", endpointConfiguration));
         }
-        
+
         public static System.ServiceModel.Channels.Binding GetDefaultBinding()
         {
             return UserPortClient.GetBindingForEndpoint(EndpointConfiguration.UserPortSoap11);
         }
-        
+
         public static System.ServiceModel.EndpointAddress GetDefaultEndpointAddress()
         {
             return UserPortClient.GetEndpointAddress(EndpointConfiguration.UserPortSoap11);
         }
-        
+
         public enum EndpointConfiguration
         {
             

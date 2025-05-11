@@ -11,6 +11,8 @@
                 <xs:element name="passengerName" type="xs:string"/>
                 <xs:element name="passengerSurname" type="xs:string"/>
                 <xs:element name="flightNumber" type="xs:string"/>
+                <xs:element name="from" type="xs:string" />
+                <xs:element name="to" type="xs:string" />
                 <xs:element name="departureDate" type="xs:dateTime"/>
                 <xs:element name="seatClass" type="tns:SeatClass"/>
             </xs:sequence>

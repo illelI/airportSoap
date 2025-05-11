@@ -1,4 +1,6 @@
 FlightDetails
 FlightsRequest
 FlightsResponse
+AllFlightsRequest
+AllFlightsResponse
 ObjectFactory

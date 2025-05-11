@@ -9,12 +9,33 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="DownloadPdfCommand.cs" />
+    <Compile Remove="TicketsViewModel.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="System.ServiceModel.Duplex" Version="6.0.*" />
     <PackageReference Include="System.ServiceModel.Federation" Version="6.0.*" />
     <PackageReference Include="System.ServiceModel.Http" Version="6.0.*" />
     <PackageReference Include="System.ServiceModel.NetNamedPipe" Version="6.0.*" />
     <PackageReference Include="System.ServiceModel.NetTcp" Version="6.0.*" />
     <PackageReference Include="System.ServiceModel.Security" Version="6.0.*" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EditorConfigFiles Remove="C:\Users\Admin\Desktop\rsi\airportSoap\airportClient\.editorconfig" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove=".editorconfig" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EditorConfigFiles Remove="C:\Users\Admin\Desktop\rsi\airportSoap\airportClient\.editorconfig" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EditorConfigFiles Remove="C:\Users\Admin\Desktop\rsi\airportSoap\airportClient\.editorconfig" />
   </ItemGroup>
 
 </Project>

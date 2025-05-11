@@ -19,6 +19,11 @@ class FlightsService {
         return flights.stream().map(this::flightToFlightDetailsMapper).toList();
     }
 
+    public List<FlightDetails> findAllFlights() {
+        List<Flight> flights = flightsRepository.findAll();
+        return flights.stream().map(this::flightToFlightDetailsMapper).toList();
+    }
+
     private FlightDetails flightToFlightDetailsMapper(Flight flight) {
         return new FlightDetails(flight.getFlightNumber(), flight.getDeparture(), flight.getDestination(), flight.getDate(), flight.getPrice());
     }
