@@ -16,8 +16,8 @@
                   Margin="10">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Flight Number" Binding="{Binding Path=flightNumber}" />
-                <DataGridTextColumn Header="From" Binding="{Binding Path=from}" />
-                <DataGridTextColumn Header="To" Binding="{Binding Path=to}" />
+                <DataGridTextColumn Header="From" Binding="{Binding Path=departure}" />
+                <DataGridTextColumn Header="To" Binding="{Binding Path=destination}" />
                 <DataGridTextColumn Header="Departure" Binding="{Binding Path=departureDate}" />
                 <DataGridTextColumn Header="Passenger" Binding="{Binding Path=passengerName}" />
                 <DataGridTextColumn Header="Class" Binding="{Binding Path=seatClass}" />

@@ -2,6 +2,7 @@ package com.ilelli.airportws.user;
 
 import org.springframework.ws.context.MessageContext;
 import org.springframework.ws.server.EndpointInterceptor;
+import org.springframework.ws.soap.SoapBody;
 import org.springframework.ws.soap.SoapHeader;
 import org.springframework.ws.soap.SoapHeaderElement;
 import org.springframework.ws.soap.SoapMessage;
@@ -22,12 +23,22 @@ public class UserAuthenticator implements EndpointInterceptor {
 
     @Override
     public boolean handleRequest(MessageContext messageContext, Object o) throws Exception {
-        QName operation = (QName) messageContext.getProperty("javax.xml.ws.wsdl.operation");
-
-        if (operation != null && "register".equalsIgnoreCase(operation.getLocalPart())) {
-            return true;
-        }
         SoapMessage soapMessage = (SoapMessage) messageContext.getRequest();
+        SoapBody body = soapMessage.getSoapBody();
+
+        // Pobieramy pierwszy element w body - to jest element operacji
+        Node operationElement = body.getPayloadSource() instanceof DOMSource
+                ? ((DOMSource) body.getPayloadSource()).getNode()
+                : null;
+
+        if (operationElement != null && operationElement instanceof Element) {
+            String operationName = ((Element) operationElement).getLocalName();
+            System.out.println("Operation name: " + operationName);
+
+            if ("registerrequest".equalsIgnoreCase(operationName)) {
+                return true;
+            }
+        }
         SoapHeader header = soapMessage.getSoapHeader();
 
         if (header == null) {

@@ -3,16 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\Admin\\Desktop\\rsi\\airportSoap\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{822F4DC5-C6C0-4FB6-BDD7-721CCA95A72D}|airportClient\\airportClient.csproj|c:\\users\\admin\\desktop\\rsi\\airportsoap\\airportclient\\loginview.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{822F4DC5-C6C0-4FB6-BDD7-721CCA95A72D}|airportClient\\airportClient.csproj|solutionrelative:airportclient\\loginview.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{822F4DC5-C6C0-4FB6-BDD7-721CCA95A72D}|airportClient\\airportClient.csproj|c:\\users\\admin\\desktop\\rsi\\airportsoap\\airportclient\\checkticketwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{822F4DC5-C6C0-4FB6-BDD7-721CCA95A72D}|airportClient\\airportClient.csproj|solutionrelative:airportclient\\checkticketwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{822F4DC5-C6C0-4FB6-BDD7-721CCA95A72D}|airportClient\\airportClient.csproj|c:\\users\\admin\\desktop\\rsi\\airportsoap\\airportclient\\connected services\\user\\reference.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{822F4DC5-C6C0-4FB6-BDD7-721CCA95A72D}|airportClient\\airportClient.csproj|solutionrelative:airportclient\\connected services\\user\\reference.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{822F4DC5-C6C0-4FB6-BDD7-721CCA95A72D}|airportClient\\airportClient.csproj|c:\\users\\admin\\desktop\\rsi\\airportsoap\\airportclient\\loginview.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{822F4DC5-C6C0-4FB6-BDD7-721CCA95A72D}|airportClient\\airportClient.csproj|solutionrelative:airportclient\\loginview.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{822F4DC5-C6C0-4FB6-BDD7-721CCA95A72D}|airportClient\\airportClient.csproj|c:\\users\\admin\\desktop\\rsi\\airportsoap\\airportclient\\checkticketwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
@@ -70,17 +70,17 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "CheckTicketWindow.xaml.cs",
               "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\rsi\\airportSoap\\airportClient\\CheckTicketWindow.xaml.cs",
               "RelativeDocumentMoniker": "airportClient\\CheckTicketWindow.xaml.cs",
-              "ToolTip": "C:\\Users\\Admin\\Desktop\\rsi\\airportSoap\\airportClient\\CheckTicketWindow.xaml.cs*",
-              "RelativeToolTip": "airportClient\\CheckTicketWindow.xaml.cs*",
-              "ViewState": "AgIAABYAAAAAAAAAAAASwCQAAAAbAAAAAAAAAA==",
+              "ToolTip": "C:\\Users\\Admin\\Desktop\\rsi\\airportSoap\\airportClient\\CheckTicketWindow.xaml.cs",
+              "RelativeToolTip": "airportClient\\CheckTicketWindow.xaml.cs",
+              "ViewState": "AgIAABYAAAAAAAAAAAASwDQAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-11T23:25:39.466Z",
               "EditorCaption": ""
@@ -94,18 +94,17 @@
               "ToolTip": "C:\\Users\\Admin\\Desktop\\rsi\\airportSoap\\airportClient\\CheckTicketWindow.xaml",
               "RelativeToolTip": "airportClient\\CheckTicketWindow.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-05-11T23:22:59.775Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-11T23:22:59.775Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
               "Title": "LoginView.xaml.cs",
               "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\rsi\\airportSoap\\airportClient\\LoginView.xaml.cs",
               "RelativeDocumentMoniker": "airportClient\\LoginView.xaml.cs",
               "ToolTip": "C:\\Users\\Admin\\Desktop\\rsi\\airportSoap\\airportClient\\LoginView.xaml.cs",
               "RelativeToolTip": "airportClient\\LoginView.xaml.cs",
-              "ViewState": "AgIAABMAAAAAAAAAAAAhwCEAAAAxAAAAAAAAAA==",
+              "ViewState": "AgIAABcAAAAAAAAAAAAkwDkAAAA6AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-11T22:36:33.724Z",
               "EditorCaption": ""
@@ -120,8 +119,7 @@
               "RelativeToolTip": "airportClient\\App.config",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
-              "WhenOpened": "2025-05-11T23:04:48.882Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-11T23:04:48.882Z"
             },
             {
               "$type": "Document",
@@ -133,8 +131,7 @@
               "RelativeToolTip": "airportClient\\SoapClientFactory.cs",
               "ViewState": "AgIAABIAAAAAAAAAAAAgwCUAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-11T22:30:23.444Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-11T22:30:23.444Z"
             },
             {
               "$type": "Document",
@@ -146,8 +143,7 @@
               "RelativeToolTip": "airportClient\\UserTicketsView.xaml.cs",
               "ViewState": "AgIAADcAAAAAAAAAAAAowEsAAAA2AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-11T21:14:44.457Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-11T21:14:44.457Z"
             },
             {
               "$type": "Document",
@@ -158,12 +154,11 @@
               "ToolTip": "C:\\Users\\Admin\\Desktop\\rsi\\airportSoap\\airportClient\\UserTicketsView.xaml",
               "RelativeToolTip": "airportClient\\UserTicketsView.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-05-11T21:02:16.454Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-11T21:02:16.454Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "Reference.cs",
               "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\rsi\\airportSoap\\airportClient\\Connected Services\\User\\Reference.cs",
               "RelativeDocumentMoniker": "airportClient\\Connected Services\\User\\Reference.cs",
@@ -171,8 +166,7 @@
               "RelativeToolTip": "airportClient\\Connected Services\\User\\Reference.cs",
               "ViewState": "AgIAAP4CAAAAAAAAAAAYwCADAAAOAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-11T20:49:54.261Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-11T20:49:54.261Z"
             },
             {
               "$type": "Document",
@@ -183,8 +177,7 @@
               "ToolTip": "C:\\Users\\Admin\\Desktop\\rsi\\airportSoap\\airportClient\\MainWindow.xaml",
               "RelativeToolTip": "airportClient\\MainWindow.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-05-11T20:13:44.297Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-11T20:13:44.297Z"
             },
             {
               "$type": "Document",
@@ -195,8 +188,7 @@
               "ToolTip": "C:\\Users\\Admin\\Desktop\\rsi\\airportSoap\\airportClient\\FlightSearch.xaml",
               "RelativeToolTip": "airportClient\\FlightSearch.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-05-11T16:44:14.081Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-11T16:44:14.081Z"
             },
             {
               "$type": "Document",
@@ -207,8 +199,7 @@
               "ToolTip": "C:\\Users\\Admin\\Desktop\\rsi\\airportSoap\\airportClient\\MainMenuView.xaml",
               "RelativeToolTip": "airportClient\\MainMenuView.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-05-11T15:26:03.611Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-11T15:26:03.611Z"
             },
             {
               "$type": "Document",
@@ -220,8 +211,7 @@
               "RelativeToolTip": "airportClient\\MainWindow.xaml.cs",
               "ViewState": "AgIAAA0AAAAAAAAAAAAgwBwAAAAvAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-10T12:25:43.228Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-10T12:25:43.228Z"
             },
             {
               "$type": "Document",
@@ -233,8 +223,7 @@
               "RelativeToolTip": "airportClient\\FlightsDatabase.xaml.cs",
               "ViewState": "AgIAAD4AAAAAAAAAAAAIwFYAAAAVAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-11T12:41:41.448Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-11T12:41:41.448Z"
             },
             {
               "$type": "Document",
@@ -245,8 +234,7 @@
               "ToolTip": "C:\\Users\\Admin\\Desktop\\rsi\\airportSoap\\airportClient\\FlightsDatabase.xaml",
               "RelativeToolTip": "airportClient\\FlightsDatabase.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-05-11T12:02:57.106Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-11T12:02:57.106Z"
             },
             {
               "$type": "Document",
@@ -258,8 +246,7 @@
               "RelativeToolTip": "airportClient\\MainMenuView.xaml.cs",
               "ViewState": "AgIAABUAAAAAAAAAAAAQwCgAAAAnAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-10T13:30:08.737Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-10T13:30:08.737Z"
             }
           ]
         }

@@ -40,15 +40,22 @@ namespace AirportClient
 
             var client = SoapClientFactory.CreateUserClientWithHeaders(login, password);
             var request = new User.LoginRequest { username = login, password = password };
-
-            var response = await client.LoginAsync(request);
-
-            if (response != null && response.LoginResponse.id != null)
+            try
             {
-                UserInfo.Id = response.LoginResponse.id;
-                UserInfo.Name = response.LoginResponse.name;
-                UserInfo.Surname = response.LoginResponse.surname;
-                _mainWindow.NavigateToMainMenu();
+
+                var response = await client.LoginAsync(request);
+
+                if (response != null && response.LoginResponse.id != null)
+                {
+                    UserInfo.Id = response.LoginResponse.id;
+                    UserInfo.Name = response.LoginResponse.name;
+                    UserInfo.Surname = response.LoginResponse.surname;
+                    _mainWindow.NavigateToMainMenu();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Błędny login lub hasło");
             }
         }
     }

@@ -21,6 +21,8 @@ class UserEndpoint {
     @PayloadRoot(namespace = NAMESPACE, localPart = "RegisterRequest")
     @ResponsePayload
     public RegisterResponse registerUser(@RequestPayload RegisterRequest request) {
+        System.out.println(request.getName() + " " + request.getSurname() + " " +
+                request.getUsername() + " " + request.getPassword());
         RegisterResponse response = userService.register(request);
         return response;
     }
